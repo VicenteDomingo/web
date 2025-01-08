@@ -1,0 +1,721 @@
+/* Per al programador/dissenyador: la coherencia de les regles s'estructura de més genera, a més específic. Comencem amb estils comuns per a totes les pàgines, i després anem als estils específics de cada pàgina. En estar pensat per a "mobile first", al final de cada pàgina, hi ha els media queries per a tauleta i desktop  */
+
+/* ---------- Estils comuns per a totes les pàgines ----------  */
+
+/* Reset de marges i farcits. Selector universal */
+* { 
+    margin: 0;
+    padding: 0;
+}
+
+/* Model de caixa alternatiu a tots els elements. Selector universal. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /*facilitem el càlcul del tamany dels elements*/
+}
+
+/* Estil per al header mobile */
+nav ul {
+    list-style: none;  /* Llevem de la llista els bullet points que venen per defecte */
+    font-weight: 700; /* Fem la font negreta, amb un pes de 700 */
+    margin: 15px; /* Afegim 15px d'espai fora de <ul> per separar-ho d'altres elements */
+    line-height: 1.6rem; /* Interliniat vertical del text en <ul> elements a 1.6 vegades l'arrel la mida de la font (normalment a 16px) */
+} 
+
+header { /* La part superior del web */
+    background-color: rgb(255, 255, 255); /* Afegim un background de color blanc fent ús del format RGB com especifica a l'exercici */
+    text-align: center; /* Centrem el text */
+    padding: 30px; /* Afegim 30px d'espai en tots els cantons */
+}
+
+header ul a { /* <a> dins de la llista <ul>, dins de <header> */
+    color: rgb(0, 0, 0); /* Color del text negre, fent ús del format RGB */
+}
+
+header ul a:hover { /* En passar el cursor sobre l'enllaç */
+    color: rgb(64, 195, 130); /* Canvia el color de l'enllaç */
+}
+ 
+/* Estil per al footer mobile */
+footer {
+    background-color:rgb(0, 0, 0); /* Fons del footer a negre */
+    color: rgb(255, 255, 255); /* Cambia el color del texto dentro del footer a blanco (RGB: 255, 255, 255) */
+    text-align: center; /* Centrem horitzontalment el text i altres elements */
+    padding-bottom: 40px; /* Afegirm 40px d'espai intern sols a la part inferior del footer */
+}
+
+footer .footer-img {
+    width: 150px; /* Ajustem l'ample */
+    height: auto; /* Mantemim les proporcions del logotip */
+    margin-top: 30px; 
+}
+
+footer p { /* Elementos <p> dins del <footer> */
+    margin-bottom: 20px; /* Afegim 20px d'espacio baix dels <p> dins del footer */
+}
+
+footer img { /* Imatges dins del <footer> */
+    padding-bottom: 20px; /* Afegim 20px d'espacio interno baix de les imatges dins del footer */
+}
+
+footer a { /* Enllaços (<a>) dins del <footer> */
+    color: rgb(255, 255, 255); /* Canviem el color a blanc en format RGB */
+}
+  
+footer a[href="#"]:hover img { /* <img> dins de <a> amb href="#" en passar el cursor sobre elles ( xarxes socials) */
+    opacity: 0.7; /* hover, opacitat al 0.7 */
+    transition: opacity 0.3s ease; /* Transició suau */
+    
+}
+
+footer ul li { /* Elementos de llista (<li>) dentro de una lista (<ul>) al footer ( polítiques) */
+    padding-bottom: 10px; /* Espai intern inferior */
+    list-style: none; /* Eliminem els estils predeterminats de la llista (punts o números) */
+}
+
+abbr { /* Etiquetas <abbr>, usades per abreviaturas o acrònims */
+    cursor: help; /* Canviem el cursor a senyal d'interrogació en passar sobre la abreviatura */
+}
+
+/* Contenidor per a mobile-first */
+.container {
+    width: 100%; /* El contenidor ocupa el 100% de l'ample disponible */
+    max-width: 1140px; /* Als mòbils, no hi ha restricció de max-width */
+    padding: 16px; /* Farcit internt */
+    margin-left: auto; /* Centra el contenedor horitzontalment */
+    margin-right: auto;
+    margin-bottom: 60px; /* 60px d'espai baix del contenidor */
+}
+
+body { /* Estil per al cos de la pàgina */
+    font-family: "Alegreya Sans", serif; /* Font principal "Alegreya Sans" */
+    background-color: rgb(242, 242, 230); /* Establim color de fons com indica l'exercici. Tò beige clar */
+}
+
+main a { /* Estils als enllaços dins del <main> */
+    color: rgb(0, 0, 0); /* Canviem el color del text dels enllaços a negre en format RGB */
+}
+
+a { /* Estil global per a tots els enllaços de la pàgina */
+    text-decoration: none; /* Eliminem el subratllat predeterminat dels enllaços */
+}
+
+p a { /* <a> dins dels paràgrafs (<p>) */
+    text-decoration: underline dotted; /* Apliquem un subratllat puntejat */
+    text-underline-offset: 0.5px; /* Ajustem la distància del subratllat (5px por baix del text) */
+    text-decoration-thickness: 1px; /* Establim el grossor del subratllat */
+}
+
+p a:hover { /* Quan l'usuari passa el cursor sobre els enllaços dins dels paràgrafs */
+    text-decoration: underline; /* Canvia el subratllat a una línia contínua en passar el cursor */
+    color: rgb(0, 0, 0); /* Canvia el color del text a negre */
+}
+
+h1 { /* Estil per als encapçalaments de nivell 1 (<h1>) */
+    font-size: 40px; /* Establim la mida de la font a 40px */
+}
+
+figcaption a { /* Enllaços dins del figcaption */
+    text-underline-offset: 5px; /* Ajustem la distància del subratllat (5px por baix del text) */
+    text-decoration-thickness: 0.5px; /* Establim el grossor del subratllat */
+}
+
+figcaption a:hover { /* Quan l'usuari passa el cursor sobre els enllaços dins dels peus d'imatge */
+    text-decoration: underline; /* Canvia el subratllat a una línia contínua en passar el cursor */
+    color: rgb(0, 0, 0); /* Canvia el color del text a negre */
+}
+  
+p a[href] { /* Enllaços amb href dins del <p> */
+    text-underline-offset: 5px; /* Ajustem la distància del subratllat (5px por baix del text) */
+    text-decoration-thickness: 0.5px; /* Establim el grossor del subratllat */
+}
+
+p a[href]:hover { 
+    text-decoration: underline; /* Canvia el subratllat a una línia contínua en passar el cursor */
+    color: rgb(0, 0, 0); /* Canvia el color del text a negre */
+}
+
+/* ---------- Estil per a Index ---------- */
+.h2-index { /* Ataquem a a tots els elements amb la classe .h2-index */
+    font-size: 2rem; /* Mida de la font a 2 rem (relatiu a l'arrel) */
+    padding-top: 30px; /* Afegim espacio interno a la part superior */
+    padding-bottom: 30px; /* Afegim espacio intern a la part inferior */
+}
+
+.h3index {
+    font-size: 1.6rem;
+}
+a:hover {
+    color: rgb(64, 195, 130); /* Canvia el color del text d'<a> al verd de les instruccions de format, en fer hover */
+}
+
+p {
+    font-size: 1rem; /* Mida de la font a 1.2 rem */
+    line-height: 1.8rem; /* Interliniat a 1.8 rem per millorar la llegibilitat */
+    margin-top: 10px; /* Afegim 10px de marge a la parte superior */
+}
+
+.caixa { /* Ataquem tots els elements amb la classe .caixa */
+    background-color: rgb(255, 255, 255); /* Color de fons en format rgb */
+    color: rgb(0, 0, 0); /* Establim el color del text a negre */
+    border:none; /* Llevem la vora de l'element */
+    margin-top: 40px; /* Agrega 40px de margen en la parte superior */
+    padding: 40px 20px; /* Afegim padding 40px a la part superior i inferior i 20px a la part dreta i esquerra */
+}
+
+.caixa > a { /* Ataquem enllaços <a> dins del container .caixa */
+    border: 1px solid black; /* Apliquem una vora d'1px de color negre al voltant de l'enllaç */
+    padding: 10px; /* 10px d'espacio intern al voltant de l'enllaç */
+}
+
+.caixa > a:hover { /* Ataquem <a>, dins de .caixa, en fer hover l'usuari */
+    border: 1px solid rgb(64, 195, 130); /* Canvi color de la vora al verd que se'ns demana */
+    color: rgb(0, 0, 0); /* Canvi color de text a negre */
+}
+
+.caixa p { /* Ataquem als <p> dins del contenidor .caixa */
+    margin-bottom: 30px; /* Agrega 30px de margen en la parte inferior de los párrafos */
+}
+
+.titol-index { /* Ataca els elements amb la classe .titol-index */
+    background-image: url(../img/hero-image-home.jpg); /* Establim la imatge hero per al fons */
+    padding:100px 20px; /* Apliquem 100px a part superior i inferior  20px als costats */
+    color: rgb(255, 255, 255);  /* Establim el color del text a blanc */
+    text-align: center; /* Centrem el text dins de la imatge */
+    position: relative; /* Establim la posició relativa, per tal de posicionar el peu de pàgina */
+}
+
+
+.titol-index .baix-dreta { /* Element amb la classe .baix-dreta dins de .titol-index */
+    position: absolute; /* Posiciona l'elemento de manera absoluta dins del contenidor */
+    bottom: 20px; /* Distància des de baix */
+    right: 20px; /* Distància des de la dreta */
+    color: rgb(0, 0, 0);; /* Ajustem el color */
+    font-size: 10px; /* Ajustem la mida de la font */
+    background-color: rgb(255, 255, 255, 0.5); /* Establim el color de fons amb opacitat */
+    width: 150px; /* Establim un ample fixe de 150px */
+}
+
+.baix-dreta a { /* Enllaços <a> dins de la imatge de fons .baix-dreta */
+    text-decoration: underline dotted; /* Apliquem un subratllat puntejat */
+}
+
+.titol-index p:first-of-type { /* Ataquem el primer <p> dentro de .titol-index */
+    font-size: 30px; /* Mida de la font a 30px */
+    padding-top: 20px; /* Afegim 20px de padding a la part superior */
+    line-height: 2rem; /* Interliniat a 2rem per a major llebibilitat */
+}
+
+form { /* Ataquem l'element <form> */
+    margin-top: 10px; /* Afegim 10px de marge superior */
+    margin-bottom: 30px; /* Agrega 30px de marge inferior */
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+form p { /* Selecciona los elementos <p> dentro de un formulario */
+    font-size: 17px; /* Establece el tamaño de la fuente a 12px */
+}
+
+button { /* Ataquem el botó del formulari */
+    background-color: transparent; /* Fons transparent */
+    padding: 10px 15px; /* 10px de padding dalt/baix i 15px als costats */
+    margin-top: 10px; /* 10px de marge superior */
+    display: block; /* Establim el botó com a bloc (ocupa tot l'ample disponible */
+    border: 1px solid rgb(0, 0, 0);
+}
+
+button:hover { /* Estils per la botó en estat hover */
+    border: 1px solid rgb(64, 195, 130); /* Apliquem una vora d'1px de color verde */
+    cursor: pointer; /* Canvi cursor a punter, indiquem que és clicable */
+}
+
+.input input { /* Elements <input> dins del contenidor amb la classe .input */
+    width: 100%; /* Establim l'ample del camp d'entrada */
+    border: none; /* Eliminem la vora predeterminada */
+    height: 25px; /* Establim la altura del camp d'entrada a 25px */
+    margin-top: 5px; /* 5px de margen superior */
+    margin-bottom: 5px; /* 5px de margen inferior */
+}
+
+input + p a { /* Ataquem els enllaços <a> dins de <p> que segueix immediatamente després de <input> */
+  text-decoration: underline dotted; /* Apliquem subratllat puntejat a l'enllaç */
+}
+
+.input p { /* Elements <p> dins del contenidor amb la classe .input */
+    margin-bottom: 10px; /* Marge inferior del paràgraf */
+
+}
+
+input:focus { /* Elements <input> quan aquests es troben en estat de focus, en fer clic dins del camp */
+    border: 1px solid rgb(0, 0, 0); /* Apliquem una vora negra d'1px en tenir el camp en estat focus */
+    outline: none; /* Llevem la vora predeterminada. Seria una ombra al voltant */
+}
+
+
+@media (min-width: 680px) { /* Fem ús d'aquest media query per al format tauleta. Si l'ample de la interfície és major o igual a 680px */
+    .flexcaixes {
+        display: flex; /* Establim la el contenidor com a flexbox */
+        gap:20px; /* Espai de 20px entre els elements */
+    }
+    .caixa {
+        flex: 1; /* Cada elemento diposa la mateixa amplada proporcional */
+    }
+    .input input {
+        width: 50%; /* L'ample de l'input es del 50% del seu contenidor */
+        display: block; /* Cada input com a element block */
+    }
+}
+
+@media (min-width: 1024px) { /* Fem ús d'aquest media query per al format desktop. Si l'ample de la interfície és major o igual a 1024px */
+
+    nav {
+        display: flex; /* Establim el contenidor del nav com a flexbox */
+        justify-content: space-between; /* Distribuïm els elements uniformement amb espai entre ells */
+        align-items: center; /* Aliniem al centre */
+    }
+
+    nav > ul {
+        display: flex; /* La llista `<ul>` s'organitza horizontalment */
+        
+    }
+
+    nav li:first-of-type::after {
+        content: "|"; /* Afegim una barra vertical `|` després del primer `<li>` */
+        margin-left: 10px;  /* Espai a l'esquerra de la barra */
+        margin-right: 10px; /* Espai a la dreta de la barra */
+    }
+
+    .flex-desktop-index {
+        display: flex; /* Establim el contenidor como un flexbox */
+        flex: 1; /* Els elementos interns ocupen l'espai disponible */
+        gap:60px; /* Espai entre els elements del contenidor */
+    }
+
+    .caixadesktopindex:first-child {
+        flex-basis: 60%; /* El primer element agafa el 60% de l'ample del contenedor */
+    }
+
+    .caixadesktopindex:last-child {
+        flex-basis: 40%; /* L'últim element <form>, ocupa el 40% de l'ample del contenidor */
+    }
+
+    .input input {
+        width: 100%; /* L'ample de l'input es el 100% del contenidor */
+    }
+
+   footer {
+    display: flex; /* Disposem el footer com a flexbox */
+    justify-content: space-between; /* Distrució dels elements del footer amb un espaci entre ells */
+    align-items: center; /* Aliniem verticalment al centre */
+    padding: 20px; /* Posem un espacio intern de 20px alvoltant del footer */
+    text-align: initial; /* Retablim la alineació de text */
+   }
+
+   footer > div > ul {
+    display: flex; /* Coloca la llista `<ul>` en una línia horitzontal */
+   }
+
+   .social {
+    text-align: right; /* Aliniem les icones de les xarxes a la derecha */
+   }
+
+   footer > div > ul > li {
+    padding: 0 15px; /* Espai entre les línies i el text */
+    border-right: 1px solid white; /* Línia vertical blanca */
+   }
+
+   footer > div > ul > li:last-of-type {
+    padding-right: 0; /* Eliminem l'espacio dret de l'últim `<li>` */
+   }
+
+   footer > div > ul > li:last-child {
+    border-right: none; /* No apliquem la línia a l'últim <li> */
+    }
+
+    .caixa p { /* Ataquem als <p> dins del contenidor .caixa */
+        margin-bottom: 50px; /* Agreguem 30px de marge a la part inferior dels paràgrafs */
+    }
+
+}
+
+/* ---------- Estil per a Tema del mes ---------- */
+.h2-temamesextincio  {
+    margin-top: 40px; /* Marge superior de 40px */
+    margin-bottom: 40px; /* Marge inferior de 40px */
+}
+
+.h2-temames {
+    margin-top: 40px; /* Margen superior de 40px */
+}
+
+.paragraf-mes {
+    margin-bottom: 15px; /* Margen inferior de 15px */
+}
+
+.caixa-mes figure img {
+    padding: 20px; /* Afegim farcit intern de 20px alvoltant de la imatge dels animals */
+    background-color: rgb(255, 255, 255); /* Establim un fondo blanco per a la imatge */
+    width: 100%;
+}
+
+div.caixa-mes > div:last-child > p {
+    font-size: 1.6rem; /* Mida de la font del paràgraf a 1.6rem */
+    font-weight: 400; /* Pes de font normal */
+    line-height: 40px; /* Definim la altura de línia en 40px per a una millor legibilitat */
+}
+
+figure figcaption a {
+    text-decoration: underline dotted; /* Posem un subratllat amb punts als enllaços dins del `<figcaption>` */
+}
+
+.figuretemames figcaption {
+    font-size: 0.9rem; /* Mida de la font del text del `<figcaption>` a 0.9rem */
+}
+
+.caixa-mes {
+    text-align: left; /* Aliniem el text del contenidor `.caixa-mes` a l'esquerra */
+}
+
+.caixa-mes p a {
+    text-decoration: underline dotted; /* Apliquem subratllat amb punts als enllaços dins dels paràgrafs de `.caixa-mes` */
+}
+
+.caixa-mes h2 {
+    font-size: 3rem; /* Establim la mida de la font als encapçalaments `<h2>` de `.caixa-mes` a 3rem */
+}
+
+.caixa-mes p:nth-of-type(1) {
+    font-size: 2rem; /* Establim la mida de la font del primer paràgraf a 2rem */
+    font-weight: 700; /* Pes de la font al primer paràgraf */
+}
+
+.llista-mes {
+    text-align: center; /* Centrem el text dins del contenidor `.llista-mes` */
+}
+
+ul.navbarultemames {
+    list-style: none; /* Llevem els estils de llista predeterminats */
+    padding: 0; /* Llevem el farcit intern de la llista */
+    margin: 0; /* Llevem els marges de la llista */
+}
+
+ul.navbarultemames li {
+    display: inline-block; /* Posem els elements de llista en una línea horitzontal */
+    font-size: 12px; /* Establim la mida de la font dels <li> a 12px */
+    font-weight: 700; /* Posem un pes de font  als elements de llista */
+}
+
+ul.navbarultemames li:not(:last-child)::after {
+    content: "•"; /* Afegim el punt a la barra de navegació dels animals, excepte l'últim animal */
+    font-size: 10px; /* Mida del punto a 10px */
+    margin-left: 5px; /* Marge esquerra de 5px al punt */
+    color: rgb(64, 195, 130) /* Canviem el color del punt al verde de l'exercici (RGB: 64, 195, 130) */
+}
+
+.mes-titol {
+    text-align: center; /* Centrem el text dins del contenidor `.mes-titol` */
+}
+
+.titol-mes > p {
+    background-color: rgb(64, 195, 130); /* Posem fons verd a gener2025 (RGB: 64, 195, 130) */
+    display: inline-block; /* Fem que ocupe l'espai necessari del paràgraf */
+    color: rgb(255, 255, 255); /* Color del text a blanc (RGB: 255, 255, 255) */
+    width: 200px; /* Ample fixe de 200px per al paràgraf */
+    font-weight: 700; /* Apliquem un pes de la font en negreta */
+    font-size: 2.2rem; /* Establem la mida de la font */
+    padding: 10px 20px; /* Posem un farcit intern dalt/baix i esquerra/dreta */
+}
+
+@media (min-width: 680px) { /* Fem ús d'aquest media query per al format tauleta. Si l'ample de la interfície és major o igual a 680px */
+
+    .titol-mes {
+        display: flex; /* Convertim el contenidor en un flexbox */
+        justify-content: center; /* Centrem els elements horitzontalment */
+        align-items: baseline; /* Aliniem els elements a la línia base del seu contingut */
+        gap:.5rem; /* Afegim un espai de 0.5rem entre els elementos */
+    }
+}
+
+@media (min-width: 1024px) { /* Fem ús d'aquest media query per al format desktop. Si l'ample de la interfície és major o igual a 1024px */
+
+    .container.tema-mes {
+        max-width: initial; /* Permet que l'ample màxim del contenidor siga el predeterminat, sense limits */
+    }
+
+     .wrapper {
+        display: flex; /* Convertim el contenidor en un flexbox per organitzar els elements en línia o columnes */
+    }
+
+    .contenidorflexmes {
+        display: flex; /* Convertim el contenidor en un flexbox */
+        flex: 0 0 200px; /* Ample fixe de 200px */
+    }
+
+   ul.navbarultemames li {
+    display: block; /* Cada element de la llista en una línia separada */
+    text-align: left; /* Aliniem el text dels elements <li> a l'esquerra */
+    margin-bottom: 5px; /* Marge inferior de 5px entre els elementos <li> */
+   }
+
+   figure.figuretemames {
+    margin-top: 0; /* Llevem qualsevol marge superior de l'elemento `<figure>` amb la classe `figuretemames` */
+   }
+
+   p.textmes {
+    margin-top: 0; /* Llevem el marge superior dels paràgrafs con la classe `textmes` */
+    font-size: 16px; /* Establim la mida de la font a 16px */
+   }
+
+   .h2-temames {
+    margin-top: 0; /* Llevem el marge superior dels elements `<h2>` con la classe `h2-temames` */
+    }
+
+    .caixa-mes {
+        display: grid; /* Convertim el contenidor en un grid layout */
+        grid-template-columns: 1fr 1fr 2fr; /* Definim tres columnes: dos iguals i la tercera més gran */
+        grid-gap: 30px; /* Afegim un espai de 30px entre les columnes i les files */
+        margin-bottom: 40px; /* Afegim un marge inferior de 40px */
+    }
+
+    ul.navbarultemames li:not(:last-child)::after {
+        content: ""; /* Llevem el punt verd dels <li> */
+    }
+}
+
+/* ---------- Estils per a Blog ---------- */
+.h1blog {
+    text-align: center;
+}
+
+.imatgeblog {
+    position: relative; /* Posiciona el contingut relativo al contenidor */
+    text-align: center; /* Centra el contingut */
+  }
+  
+  .imatgeblog img {
+    width: 100%; /* Assegurem que la imatge ocupe l'ample del conenidor */
+    height: auto; /* Mantenir les proporcions */
+    display: block;
+}
+  
+.imatgeblog figcaption {
+    position: absolute; /* Possicionem el peu de text dins de la imatge */
+    bottom: 0; /* Col·loquem el peu a la part inferior */
+    right: 0; /* Aliniem a la dreta */
+    width: 40%; /* Fem que ocupe el 40% */
+    background: rgba(242, 242, 230, 0.7); /* Fons semitransparent per millorar la legibilitat */
+    padding: 10px; /* Espai intern */
+    font-size: 12px;
+    text-align: center; /* Centrem el text horitzontalment */
+    margin: 20px; /* Allunyem el peu de la imatge per estètica i millorar la lectura */
+}
+
+figcaption a:hover {
+    color: rgb(0, 0, 0); /* Canvia el color de <a> dins de `<figcaption>` a negre en passar el mouse */
+}
+
+a.boto-blog {
+    width: 40px; /* Establim un ample fixe de 40px per a l'enllaç amb la classe `boto-blog` */
+    border: 1px solid rgb(0, 0, 0); /* Apliquem una vora negra alvoltant de l'enllaç */
+    padding: 10px; /* Posem un farcit intern de 10px dins de l'enllaç */
+}
+
+a.boto-blog:hover {
+    color: rgb(0, 0, 0); /* Canviem el color del text en fer hover sobre l'enllaç */
+    border: 1px solid rgb(64, 195, 130);  /* Canviem el color de la vora a verd (RGB: 64, 195, 130), en passar el cursor */
+}
+
+.fonsblancblog {
+    width: 100%; /* Establim l'ample del contenidor `.fonsblancblog` al 100% del seu contenidor pare */
+    background-color: white; /* Definim un fons blanc per al contenidor */
+    padding: 10px; /* Afegim un farcit intern en tots els costats de 10px */
+    border: 0; /* Llevem qualsevol vora del contenidor */
+    margin: 0; /* Llevem qualsevol marge del contenidor */
+    padding-bottom: 30px; /* Afegim un farcit inferior de 30px */
+}
+
+.fonsblancblog p:last-of-type {
+    margin-bottom: 50px; /* Afegim un marge inferior a l'últim paràgraf dins de `.fonsblancblog` */
+}
+
+.llista-blog {
+    display: flex; /* Fem us de Flexbox per aliniar-los en línia */
+    justify-content: center; /* Els centrem horitzontalment */
+    padding: 0; /* Eliminem el padding per defecte */
+    margin-top: 50px; /* Marge per separar de la resta d'articles*/
+    margin-bottom: 60px; 
+}
+
+.llista-blog li {
+    list-style-type: none; /* Eliminem els bullet points */
+    padding: 5px 10px; /* Espai alvoltant de los elementos */
+    margin: 0 10px; /* Separación entre los <li> horizontalmente */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.llista-blog li:hover {
+    background-color: rgb(64, 195, 130); /* Canviem el color del fons dels elements `<li>` en `.llista-blog` al verd del projecte (RGB: 64, 195, 130) en passar el mouse por damunt */
+}
+
+.div-blog {
+    margin-bottom: 50px; /* Marge inferior de 50px al contenidor `.div-blog` */
+    margin-top: 50px; /* Margen superior de 50px al contenidor `.div-blog` */
+}
+
+@media (min-width: 680px) { /* Fem ús d'aquest media query per al format tauleta. Si l'ample de la interfície és major o igual a 680px */
+
+    .container-grid-blog {
+        display: grid; /* Convertim el contenidor `.container-grid-blog` en un grid layout */
+        grid-template-columns: repeat(2, 1fr); /* Creem 2 columnes amb una mida igual d'1fr (una francció de l'espaci disponible) */
+        gap: 3rem; /* Afegim un espai de 3rem entre les files i columnes */
+    }
+}
+
+@media (min-width: 1024px) { /* Fem ús d'aquest media query per al format desktop. Si l'ample de la interfície és major o igual a 1024px */
+
+    .container-grid-blog {
+        display: grid; /* Convertim el contenidor `.container-grid-blog` en un grid layout */
+        grid-template-columns: repeat(3, 1fr); /* Creem 3 columnes amb una mida igual de 1fr */
+        gap: 3rem; /* Afegim un espai de 3rem entre les files i columnes */
+    }
+    figure.imatgeblog figcaption {
+        font-size: 10px; /* Ajustem la mida de la font dels elements `<figcaption>` dins de `.imatgeblog` a 10px */
+    }
+}
+
+/* ---------- Estils per a Post ---------- */
+nav ul.ruta-post {
+    list-style: none; /* Eliminem els punts de la lista */
+    display: flex; /* Coloca los elementos de la lista en una línea usando flexbox */
+    font-weight: 400; /* Establece un peso de fuente regular para el texto */
+    padding: 0; /* Elimina el relleno interno de la lista */
+    margin: 0; /* Elimina el margen externo de la lista */
+}
+
+nav ul li.post-ruta {
+    margin-right: 10px; /* Espai entre els elements */
+}
+
+nav ul li.post-ruta::after {
+    content: ">"; /* Afegim el separador */
+    margin-left: 10px; /* Agrega un espacio de 10px a la izquierda del separador */
+}
+
+nav ul li.post-ruta:last-child::after {
+    content: ""; /* Lleverm el separador de l'últim element */
+}
+
+.foto-post {
+    position: relative; /* Utilitzem per possicionar elements absoluts dins de la imatge */
+    width: 100%; /* Ajustem a l'ample */
+    height: 300px; /* Li donem altura */
+    background-image: url(../img/post-fast-fashion.jpg); /* Ruta de la nostra imatge */
+    background-size: 100%; /* Ajustem la imatge per cobrir tot el contenidor */
+    background-position: center; /* Centrem la imatge */
+    background-repeat: no-repeat; /* Evitem que la imatge es repetisca */
+}
+
+.peu-text {
+    position: absolute;
+    bottom: 10px; /* Ajustem la distància des de baix */
+    right: 10px; /* Ajustem la distància de de la dreta */
+    color: rgb(0, 0, 0); /* Color del text */
+    background-color: rgba(255, 255, 255, 0.7); /* Fons transparent */
+    padding: 5px 10px; /* Espai intern */
+    font-size: 14px; /* Mida del text */
+}
+
+.peu-text a {
+    text-decoration: underline dotted; /* Apliquem un subratllat puntejat als enllaços dins de `.peu-text` */
+    color: rgb(0, 0, 0);  /* Establim el color del text de l'enllaç en negro */
+    text-underline-offset: 3px; /* Ajustem la distància del subratllat (3px por baix del text) */
+    text-decoration-thickness: 0.5px; /* Establim el grossor del subratllat */
+}
+
+.peu-text a:hover {
+    text-decoration: underline; /* Canvia el subratllat a una línia contínua en passar el cursor */
+    color: rgb(0, 0, 0); /* Canvia el color del text a negre */
+}
+
+
+.video-container {
+    margin-top: 20px; /* Afegim un marge superior de 20px al contenidor del video */
+    max-width: 800px; /* Ajustem l'ample del vídeo */
+    text-align: left; /* Text a l'esquerra del figcaption */
+}
+
+figure {
+    margin-top: 20px; /* Afegim un marge superior de 20px a tots els elements `<figure>` */
+}
+
+.containter-video iframe {
+    width: 100%; /* Fem que l'ample del ifram siga el 100% del contenidor */
+    height: auto; /* Ajustem automàticament l'altura proporcional a l'ample */
+    aspect-ratio: 16/9; /* Establim una proporció d'aspecto de 16:9 per al iframe */
+    border: 0; /* Llevem qualsevol vora del iframe */
+}
+
+figcaption {
+    margin-top: 20px; /* Afegim un marge superior de 20px als elements `<figcaption>` */
+}
+
+ol {
+    line-height: 1.6rem; /* Definim un interlineat de 1.6rem per als elements `<ol>` */
+}
+
+ol li {
+    margin-left: 50px; /* Posem un marge esquerra als elements `<li>` dins de <ol> */
+    margin-top: 20px; /* Margen superior de 20px entre cada element de la llista */
+    line-height: 1.2rem; /* Interlineat de 1.2rem per als elements de la llista */
+}
+
+aside {
+    border-top: 1px solid rgb(0, 0, 0); /* Afegim una línia superior negra de 1px l'elemento `<aside>` */
+}
+
+.h1post {
+    margin-top: 50px; /* Marge superior de 50px als encapçalaments amb la classe `.h1post` */
+    margin-bottom: 50px; /* Marge inferior de 50px als encapçalaments amb la classe `.h1post` */
+}
+
+.h1paragraf {
+    font-size: 1.2rem; /* Establim la mida de la font per a la classe `.h1paragraf` */
+    margin-bottom: -60px; /* Marge inferior negatiu de -60px (reduïm l'espai baix de l'element) */
+}
+
+.h2post {
+    font-size: 2rem; /* Establim la mida de la font en 2rem per als títols amb la classe `.h2post` */
+    margin-top: 30px; /* Marge superior de 30px */
+    margin-bottom: 20px; /* Margen inferior de 20px */
+}
+
+.h2postinteressar {
+    margin-bottom: 40px; /* Margen inferior de 40px als títols con la classe `.h2postinteressar` */
+}
+
+.h3post {
+    font-size: 1.6rem; /* Mida de la font en 1.6rem per als títols amb la classe `.h3post` */
+    margin-top: 30px; /* Mrge superior de 30px */
+}
+
+@media (min-width: 680px) {
+
+    .flexcontainerpost {
+        display: grid; /* Fem ús d'un sistema de retícula per al contenidor `.flexcontainerpost` */
+        gap: 20px; /* Establim un espai de 20px entre les files i columnes de la quadrícula */
+        grid-template-columns: repeat(2, 1fr); /* Creem una quadrícula amb 2 colmunes iguals (cada columna ocupa una fracció de l'espai disponible) */
+    }
+}
+
+@media (min-width: 1024px) {
+    .flexcontainerpost {
+        display: grid; /* Sistema grid per al contenidor `.flexcontainerpost` */
+        gap: 20px; /* Espai de 20px entre les filas i columnes de la quadrícula */
+        grid-template-columns: repeat(4, 1fr); /* Creem una quadrícula amb 4 columnes iguals (cada columna ocupa una fracció de l'espai disponible) */
+    }
+}
